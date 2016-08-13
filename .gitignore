@@ -10,3 +10,6 @@
 *.rel
 *.rst
 *.sym
+*.ihx
+*.lk
+*.asm
