@@ -1,5 +1,5 @@
-#ifndef INTERRUPTS
-#define INTERRUPTS
+#ifndef INTERRUPTS_H
+#define INTERRUPTS_H
 
 /* habilita/desabilita global */
 #define GLOBAL  (1 << 7)
