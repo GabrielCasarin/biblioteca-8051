@@ -18,4 +18,15 @@ __asm
 __endasm;
 }
 
+void Delay(void)
+{
+ //TMOD = 0x01;
+ TL0 = 0x47;
+ TH0 = 0xFF;
+ TR0 = 1;
+ while(!TF0);
+ TR0 = 0;
+ TF0 = 0;
+} 
+
 #endif /* end of include guard: DELAY_H */

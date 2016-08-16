@@ -15,7 +15,7 @@
 unsigned char __far __at (@ADC_ADDR) ADC;
 
 volatile unsigned char leu;
-volatile unsigned int temperatura_atual;
+volatile unsigned int leitura_atual;
 
 void init_adc0802() {
 /* rotina de inicializacao da interrupcao EXT1 utilizada pelo ADC0802 */
@@ -24,7 +24,7 @@ void init_adc0802() {
 
 unsigned char __far __at 0xFFF6 vetorEX1[] = {0x02, 0xA0, 0x13};
 void ext1_int() __interrupt 2 __using 1 {
-  temperatura_atual = ADC;
+  leitura_atual = ADC;
   leu = 1;
 }
 
@@ -36,7 +36,7 @@ unsigned int ler_temperatura() {
 
   while (!leu) {}
 
-  return temperatura_atual;
+  return (unsigned int) leitura_atual*0.242;
 }
 
 
