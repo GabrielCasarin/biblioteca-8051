@@ -16,7 +16,7 @@ void init_timer0() {
   TH0 = 0;
 
   overflows = 0;  
-  filtro = 0;
+  filtro = 0xFF;
   
   // run
   TR0 = 1;
@@ -27,13 +27,11 @@ void timer0_int (void) __interrupt (1) __using (1) {
   overflows++;
   
   if (overflows == 18) {
-    filtro != filtro;
+    filtro = 0xFF;
   }
   else if (overflows == 36) {
-    filtro != filtro;
-	overflows = 0;
-	CO('G');
-	CO(' ');
+    filtro = 0x00;
+    overflows = 0;
   }
 }
 
