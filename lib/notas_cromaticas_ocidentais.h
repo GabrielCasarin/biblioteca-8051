@@ -2,21 +2,23 @@
 #define NOTAS_H
 
 typedef enum {
-  C,
-  CH,
-  D,
-  DH,
-  E,
-  F,
-  FH,
-  G,
-  GH,
-  A,
-  AH,
-  B
+  DO = 0,
+  DO_H = 1,
+  RE = 2,
+  RE_H = 3,
+  MI = 4,
+  FA = 5,
+  FA_H = 6,
+  SOL = 7,
+  SOL_H = 8,
+  LA = 9,
+  LA_H = 10,
+  SI = 11,
+  PAUSA = -2,
+  FIM = -1
 } NOTA;
 
-unsigned int notas[12][8] = {
+unsigned int __far __at (@0x9000) N[12][8] = {
 /* C  */ {16, 33,  65, 131, 262, 523, 1046, 2093},
 /* C# */ {17, 35,  69, 139, 277, 554, 1109, 2217},
 /* D  */ {18, 37,  73, 147, 294, 587, 1175, 2349},
